@@ -14,10 +14,18 @@ public class TicTacToeActivity extends Activity {
     private TicTacToeGame mGame;
     // Buttons making up the board
     private Button mBoardButtons[];
-    // Menu Button
+    // Menu Buttons
     private Button mNewGameButton;
+    private Button mRestartStatsButton;
     // Various text displayed
     private TextView mInfoTextView;
+    private TextView mHumanVictories;
+    private TextView mAndroidVictories;
+    private TextView mTies;
+    // Variables to count results
+    private int humanVictories = 0;
+    private int androidVictories = 0;
+    private int ties = 0;
     // Represents status of the Game
     public boolean mGameOver;
 
@@ -36,7 +44,14 @@ public class TicTacToeActivity extends Activity {
         mBoardButtons[7] = (Button) findViewById(R.id.eight);
         mBoardButtons[8] = (Button) findViewById(R.id.nine);
         mInfoTextView = (TextView) findViewById(R.id.information);
+        mHumanVictories = (TextView) findViewById(R.id.Human_Victories);
+        mHumanVictories.setText("0");
+        mAndroidVictories = (TextView) findViewById(R.id.Android_Victories);
+        mAndroidVictories.setText("0");
+        mTies = (TextView) findViewById(R.id.Ties);
+        mTies.setText("0");
         mNewGameButton= (Button) findViewById(R.id.NewGame);
+        mRestartStatsButton = (Button) findViewById(R.id.RestartStats);
         mGame = new TicTacToeGame();
         startNewGame();
     }
@@ -53,7 +68,9 @@ public class TicTacToeActivity extends Activity {
             mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
         }
         mNewGameButton.setEnabled(true);
-        mNewGameButton.setOnClickListener(new ButtonClickListener(10));
+        mNewGameButton.setOnClickListener(new ButtonClickListener(9));
+        mRestartStatsButton.setEnabled(true);
+        mRestartStatsButton.setOnClickListener(new ButtonClickListener(10));
         // Human goes first
         mInfoTextView.setText(R.string.first_human);
     } // End of startNewGame
@@ -65,8 +82,12 @@ public class TicTacToeActivity extends Activity {
             this.location = location;
         }
         public void onClick(View view) {
-            if(mNewGameButton.isEnabled() && location > 8){
-                System.out.println("newGame");
+            if(location == 9){
+                startNewGame();
+            }else if (location == 10) {
+                humanVictories = 0;
+                androidVictories = 0;
+                ties = 0;
                 startNewGame();
             }else if (mBoardButtons[location].isEnabled()) {
                 setMove(TicTacToeGame.HUMAN_PLAYER, location);
@@ -82,15 +103,24 @@ public class TicTacToeActivity extends Activity {
                     mInfoTextView.setText(R.string.turn_human);
                 else if (winner == 1){
                     mInfoTextView.setText(R.string.result_tie);
+                    ties = ties + 1;
                     mGameOver = true;
+                    endGame();
                 }else if (winner == 2){
                     mInfoTextView.setText(R.string.result_human_wins);
+                    humanVictories = humanVictories + 1;
                     mGameOver = true;
+                    endGame();
                 }else{
                     mInfoTextView.setText(R.string.result_computer_wins);
+                    androidVictories = androidVictories + 1;
                     mGameOver = true;
+                    endGame();
                 }
             }
+            mHumanVictories.setText(Integer.toString(humanVictories));
+            mAndroidVictories.setText(Integer.toString(androidVictories));
+            mTies.setText(Integer.toString(ties));
         }
     }
     private void setMove(char player, int location) {
@@ -102,6 +132,11 @@ public class TicTacToeActivity extends Activity {
                 mBoardButtons[location].setTextColor(Color.rgb(0, 200, 0));
             else
                 mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));
+        }
+    }
+    private void endGame(){
+        for (int i = 0; i < mBoardButtons.length; i++) {
+            mBoardButtons[i].setEnabled(false);
         }
     }
 }
