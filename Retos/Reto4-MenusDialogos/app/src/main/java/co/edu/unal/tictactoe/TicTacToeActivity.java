@@ -78,15 +78,18 @@ public class TicTacToeActivity extends Activity {
                             public void onClick(DialogInterface dialog, int item) {
                                 dialog.dismiss(); // Close dialog
                                 // TODO: Set the diff level of mGame based on which item was selected.
-                                switch (selected){
+                                switch (item){
                                     case 0:
                                         mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Easy);
+                                        startNewGame();
                                         break;
                                     case 1:
                                         mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Harder);
+                                        startNewGame();
                                         break;
                                     case 2:
                                         mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Expert);
+                                        startNewGame();
                                         break;
                                 }
                                 // Display the selected difficulty level
