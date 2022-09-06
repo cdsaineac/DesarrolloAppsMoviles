@@ -218,7 +218,25 @@ public class TicTacToeActivity extends Activity {
                         }
                     }, 3000);
 
+                }else if (winner == 1){
+                    mInfoTextView.setText(R.string.result_tie);
+                    ties = ties + 1;
+                    mGameOver = true;
+                    endGame();
+                }else if (winner == 2){
+                    mInfoTextView.setText(R.string.result_human_wins);
+                    humanVictories = humanVictories + 1;
+                    mGameOver = true;
+                    endGame();
+                }else{
+                    mInfoTextView.setText(R.string.result_computer_wins);
+                    androidVictories = androidVictories + 1;
+                    mGameOver = true;
+                    endGame();
                 }
+                mHumanVictories.setText(Integer.toString(humanVictories));
+                mAndroidVictories.setText(Integer.toString(androidVictories));
+                mTies.setText(Integer.toString(ties));
             }
             // So we aren't notified of continued events when finger is moved
             return false;
