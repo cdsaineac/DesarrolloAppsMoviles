@@ -74,8 +74,11 @@ public class TicTacToeActivity extends Activity {
             case R.id.ai_difficulty:
                 showDialog(DIALOG_DIFFICULTY_ID);
                 return true;
-            case R.id.quit:
-                showDialog(DIALOG_QUIT_ID);
+            case R.id.restart_numbers:
+                humanVictories = 0;
+                androidVictories = 0;
+                ties = 0;
+                displayScores();
                 return true;
         }
         return false;

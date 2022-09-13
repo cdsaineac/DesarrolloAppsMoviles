@@ -2,10 +2,10 @@
     <item android:id="@+id/new_game"
         android:title="Nuevo Juego"
         android:icon="@drawable/ic_action_add" />
+    <item android:id="@+id/restart_numbers"
+        android:title="Reiniciar conteo"
+        android:icon="@drawable/ic_action_add" />
     <item android:id="@+id/ai_difficulty"
         android:title="Dificultad"
         android:icon="@drawable/ic_action_settings" />
-    <item android:id="@+id/quit"
-        android:title="Salir"
-        android:icon="@drawable/ic_action_process_end" />
 </menu>
