@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal" >
+
+    <android.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TableLayout android:id="@+id/grid" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginTop="25dp">
+        <TableRow android:gravity="center">
+            <TextView
+                android:id="@+id/information"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:layout_marginRight="50dp"
+                android:text="info"
+                android:textSize="20dp" />
+            <co.edu.unal.tictactoe.BoardView
+                android:id="@+id/board"
+                android:layout_width="270dp"
+                android:layout_height="270dp"
+                android:layout_marginRight="50dp" />
+
+            <TableLayout android:id="@+id/results_grid" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_marginTop="25dp">
+                <TableRow android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/manchesterunited" />
+                    <TextView android:id="@+id/Human_Victories" android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" android:text="info"
+                        android:gravity="center" android:layout_marginTop="20dp"
+                        android:textSize="20dp"
+                        android:padding="20dp"/>
+                </TableRow>
+                <TableRow android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/manchestercity" />
+                    <TextView android:id="@+id/Android_Victories" android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" android:text="info"
+                        android:gravity="center" android:layout_marginTop="20dp"
+                        android:textSize="20dp"
+                        android:padding="20dp"/>
+                </TableRow>
+                <TableRow android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@android:drawable/presence_busy" />
+                    <TextView android:id="@+id/Ties" android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" android:text="info"
+                        android:gravity="center" android:layout_marginTop="20dp"
+                        android:textSize="20dp"
+                        android:padding="20dp"/>
+                </TableRow>
+            </TableLayout>
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
