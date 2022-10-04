@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/Reto8-SQLite/app/src/main/res/layout/activity_agregar_empresa.xml" value="0.2" />
+        <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/Reto8-SQLite/app/src/main/res/layout/activity_editar_empresa.xml" value="0.2" />
+        <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/Reto8-SQLite/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/Reto8-SQLite/app/src/main/res/layout/fila_empresa.xml" value="0.2" />
         <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/app/src/main/res/layout/activity_agregar_empresa.xml" value="0.2" />
         <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/app/src/main/res/layout/activity_editar_empresa.xml" value="0.1" />
         <entry key="..\:/AndroidStudio/Desarrollo de apps para dispositivos moviles/Retos/app/src/main/res/layout/activity_main.xml" value="0.25" />

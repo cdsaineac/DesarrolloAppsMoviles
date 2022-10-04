@@ -41,7 +41,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="URL"
-        android:inputType="text"
+        android:inputType="textUri"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEditName" />
     <EditText
@@ -53,7 +53,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Phone"
-        android:inputType="text"
+        android:inputType="phone|number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEditUrl" />
     <EditText
@@ -65,7 +65,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEditPhone" />
 
