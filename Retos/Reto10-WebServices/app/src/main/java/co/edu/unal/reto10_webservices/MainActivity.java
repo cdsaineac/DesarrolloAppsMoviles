@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.res.ResourcesCompat;
+
 import android.widget.Spinner;
 import org.json.JSONArray;
 
@@ -166,12 +169,18 @@ public class MainActivity extends AppCompatActivity implements
         String id = "0";
         String title = "";
         String snippet = "";
+        String subdescription = "";
         try {
             id = object.getString("objectid");
             String pointY = object.getString("point_y").replace(",",".");
             String pointX = object.getString("point_x").replace(",",".");
             title = object.getString("bconombre");
-            snippet = object.getString("bcodirecci");
+            subdescription= object.getString("bcodirecci") +
+                    "\n\t" +
+                    object.getString("bcocorreoe");
+            snippet = object.getString("bconomloc") +
+                    "\n\t" +
+                    object.getString("bconomupz");
             latitude = Double.parseDouble(pointY);
             longitud = Double.parseDouble(pointX);
 
@@ -181,8 +190,12 @@ public class MainActivity extends AppCompatActivity implements
         GeoPoint point = new GeoPoint(latitude,longitud);
         Marker marker = new Marker(mapa);
         marker.setId("Bibliotk");
+
+        Drawable icon = ResourcesCompat.getDrawable(getResources(), R.drawable.books, null);
+        marker.setIcon(icon);
         marker.setTitle(title);
         marker.setSnippet(snippet);
+        marker.setSubDescription(subdescription);
         marker.setPosition(point);
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM);
         mapa.getOverlays().add(marker);
@@ -250,15 +263,6 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void cleanMarkers() {
-        /*for (int j = 0; j < mapa.getOverlays().size(); j++) {
-            Overlay possibleMarker = mapa.getOverlays().get(j);
-            if(possibleMarker instanceof Marker){
-                if(((Marker) possibleMarker).getId().equals("Bibliotk")){
-                mapa.getOverlays().remove(possibleMarker);
-                }
-            }
-        }
-        */
         mapa.getOverlays().clear();
         paintMyLocation();
     }
